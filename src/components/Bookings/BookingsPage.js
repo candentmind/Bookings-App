@@ -12,7 +12,7 @@ export default function BookingsPage () {
   // switch from useFetch to useQuery
   const {data: bookables = [], status, error} = useQuery(
     "bookables",
-    () => getData("http://localhost:3001/bookables")
+    () => getData("https://my-json-server.typicode.com/candentmind/Bookings-App/bookables")
   );
 
   const {date, bookableId} = useBookingsParams();

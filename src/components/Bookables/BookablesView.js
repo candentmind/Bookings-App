@@ -11,7 +11,7 @@ import PageSpinner from "../UI/PageSpinner";
 export default function BookablesView () {
   const {data: bookables = [], status, error} = useQuery(
     "bookables",
-    () => getData("http://localhost:3001/bookables")
+    () => getData("https://my-json-server.typicode.com/candentmind/Bookings-App/bookables")
   );
 
   const {id} = useParams();

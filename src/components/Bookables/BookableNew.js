@@ -14,7 +14,7 @@ export default function BookableNew () {
 
   const {mutate: createBookable, status, error} = useMutation(
 
-    item => createItem("http://localhost:3001/bookables", item),
+    item => createItem("https://my-json-server.typicode.com/candentmind/Bookings-App/bookables", item),
 
     {
       onSuccess: bookable => {

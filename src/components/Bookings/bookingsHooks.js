@@ -11,8 +11,9 @@ export function useBookings (bookableId, startDate, endDate) {
   const start = shortISO(startDate);
   const end = shortISO(endDate);
 
-  const urlRoot = "http://localhost:3001/bookings";
-
+  // const urlRoot = "http://localhost:3001/bookings";
+  const urlRoot = "https://my-json-server.typicode.com/candentmind/Bookings-App/bookings";
+  
   const queryString = `bookableId=${bookableId}` +
     `&date_gte=${start}&date_lte=${end}`;
 
@@ -71,7 +72,7 @@ export function useBookingsParams () {
 export function useCreateBooking (key) {
   const queryClient = useQueryClient();
   const mutation = useMutation(
-    item => createItem("http://localhost:3001/bookings", item),
+    item => createItem("https://my-json-server.typicode.com/bookings", item),
     {
       onSuccess: (booking) => {
         queryClient.invalidateQueries(key);
@@ -90,7 +91,7 @@ export function useCreateBooking (key) {
 export function useUpdateBooking (key) {
   const queryClient = useQueryClient();
   const mutation = useMutation(
-    item => editItem(`http://localhost:3001/bookings/${item.id}`, item),
+    item => editItem(`https://my-json-server.typicode.com/bookings${item.id}`, item),
     {
       onSuccess: (booking) => {
         queryClient.invalidateQueries(key);
@@ -111,7 +112,7 @@ export function useUpdateBooking (key) {
 export function useDeleteBooking (key) {
   const queryClient = useQueryClient();
   const mutation = useMutation(
-    id => deleteItem(`http://localhost:3001/bookings/${id}`),
+    id => deleteItem(`https://my-json-server.typicode.com/bookings/${id}`),
     {
       onSuccess: (resp, id) => {
         queryClient.invalidateQueries(key);
